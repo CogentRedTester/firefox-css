@@ -1,0 +1,27 @@
+/*
+###############################################################################
+In addition to this css set the following variable values in the style editor
+--tabs-indent = 2%
+--tabs-bg-active = #6551d9ff
+###############################################################################
+
+/* prevents the pinned tabs panel from overflowing when the sidebar is shrunk */
+
+.PinnedDock {
+    flex-wrap: nowrap !important;
+}
+.PinnedTab {
+    flex-shrink: 0;
+}
+
+/* moves the text next to the favicon one pixel to the right so that it's not visible with a shrunk tabbar */
+
+.Tab .fav {
+margin-right: 8px;
+}
+
+
+/* colours the text of unread tabs */
+.Tab[data-unread] .t-box .title {
+color: rgb(180,200,20)
+}
