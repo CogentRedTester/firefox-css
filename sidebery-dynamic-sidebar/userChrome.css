@@ -1,6 +1,15 @@
-/* Removes tabs bar */
+/* Sidebery modifications */
 
-#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+/* The sidebery-command is a property of the sidebar when sidebery is open */
+:root {
+  --sidebery-command: "_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action";
+  --sidebar-min-width: 33px;
+  --sidebar-visible-width: 300px;
+}
+
+/* Hides tabs bar when sidebery is enabled */
+/* The below string contains an empty unicode character */
+#main-window[titlepreface*=" ‎"] #TabsToolbar {
     visibility: collapse !important;
 }
 
@@ -10,8 +19,8 @@
     max-width: none !important;
     min-width: 0px !important;
 }
-/* Minimize sidebar header to a light blue stripe (except Bookmarks, History, Sync'd Tabs); appears normally on hover */
-#sidebar-box:not([sidebarcommand="viewBookmarksSidebar"]):not([sidebarcommand="viewHistorySidebar"]):not([sidebarcommand="viewTabsSidebar"]) 
+/* Minimize sidebar header to a light blue stripe when sidebery is enabled */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
   #sidebar-header:not(:hover) {
     max-height: 5px !important;
     min-height: 5px !important;
@@ -20,27 +29,28 @@
     opacity: 0.5 !important;
     
 }
-#sidebar-box:not([sidebarcommand="viewBookmarksSidebar"]):not([sidebarcommand="viewHistorySidebar"]):not([sidebarcommand="viewTabsSidebar"]) 
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
   #sidebar-header:not(:hover) #sidebar-switcher-target {
     /* BAD NEWS: display: none !important; */
     opacity: 0 !important;
 }
-
-/* Shrink sidebar until hovered, when using Tree Style Tab. */
-:root {
-  --sidebar-min-width: 33px;
-  --sidebar-visible-width: 300px;
+/* Maintains the blue strip when the sidebar is expanded */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover #sidebar-header:not(:hover) {
+    background-color: #7ad !important;
+    opacity: 0.5 !important;
 }
 
-#sidebar,
-#sidebar-header {
+/* Shrink sidebar until hovered, when using Sidebery. */
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar,
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header  {
   position: relative !important;
   min-width: var(--sidebar-min-width) !important;
   max-width: var(--sidebar-min-width) !important;
   z-index:1;
 }
 
-#sidebar-box:hover :-moz-any(#sidebar,#sidebar-header) {
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover :-moz-any(#sidebar,#sidebar-header) {
   background-color: var(--toolbar-bgcolor) !important;
   min-width: var(--sidebar-visible-width) !important;
   max-width: var(--sidebar-visible-width) !important;
