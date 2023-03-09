@@ -33,6 +33,7 @@
   #sidebar-header:not(:hover) #sidebar-switcher-target {
     /* BAD NEWS: display: none !important; */
     opacity: 0 !important;
+    display: none;
 }
 /* Maintains the blue strip when the sidebar is expanded */
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover #sidebar-header:not(:hover) {
