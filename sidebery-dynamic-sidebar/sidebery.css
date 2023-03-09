@@ -1,5 +1,8 @@
 /*
 ###############################################################################
+These CSS rules are for the sidebery extension and should be entered into
+sidebery's options.
+
 In addition to this css set the following variable values in the style editor
 --tabs-indent = 2%
 --tabs-bg-active = #6551d9ff
@@ -17,11 +20,11 @@ In addition to this css set the following variable values in the style editor
 /* moves the text next to the favicon one pixel to the right so that it's not visible with a shrunk tabbar */
 
 .Tab .fav {
-margin-right: 8px;
+    margin-right: 8px;
 }
 
 
 /* colours the text of unread tabs */
 .Tab[data-unread] .t-box .title {
-color: rgb(180,200,20)
+    color: rgb(180,200,20)
 }
