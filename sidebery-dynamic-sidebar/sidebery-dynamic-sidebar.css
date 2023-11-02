@@ -19,27 +19,27 @@
     max-width: none !important;
     min-width: 0px !important;
 }
-/* Minimize sidebar header to a light blue stripe when sidebery is enabled */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
-  #sidebar-header:not(:hover) {
-    max-height: 5px !important;
-    min-height: 5px !important;
-    padding: 0 !important;
-    background-color: #7ad !important;
-    opacity: 0.5 !important;
-    
+
+/* Styles the sidebar header */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
+  background-color: inherit;
+  overflow: hidden;
 }
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]
-  #sidebar-header:not(:hover) #sidebar-switcher-target {
-    /* BAD NEWS: display: none !important; */
-    opacity: 0 !important;
-    display: none;
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-icon {
+  padding-right: 10px !important;
+  width: 30px !important;
+  margin-left: -6px;
 }
-/* Maintains the blue strip when the sidebar is expanded */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover #sidebar-header:not(:hover) {
-    background-color: #7ad !important;
-    opacity: 0.5 !important;
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover #sidebar-icon {
+  display: none;
 }
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-title {
+  padding-left: 0 !important;;
+}
+
 
 /* Disables the sidebar close button when the header is hidden */
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header:not(:hover) #sidebar-close {
@@ -48,7 +48,8 @@
 
 /* Shrink sidebar until hovered, when using Sidebery. */
 
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]  {
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"],
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
   position: relative !important;
   min-width: var(--sidebar-min-width) !important;
   max-width: var(--sidebar-min-width) !important;
@@ -56,7 +57,7 @@
 }
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover :-moz-any(#sidebar,#sidebar-header) {
-  background-color: var(--toolbar-bgcolor) !important;
+/*   background-color: var(--toolbar-bgcolor) !important; */
   min-width: var(--sidebar-visible-width) !important;
   max-width: var(--sidebar-visible-width) !important;
   margin-right: calc((var(--sidebar-visible-width) - var(--sidebar-min-width)) * -1) !important;
