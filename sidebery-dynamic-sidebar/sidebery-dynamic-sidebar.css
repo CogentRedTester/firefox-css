@@ -56,6 +56,16 @@
   z-index:1;
 }
 
+/* Adds a dark grey border to the right of the sidebar */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] :-moz-any(#sidebar,#sidebar-header) {
+  border-right: 1px solid darkgray;
+}
+
+/* Removes the sidebar splitter */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not(:hover) + splitter {
+  display: none;
+}
+
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover :-moz-any(#sidebar,#sidebar-header) {
 /*   background-color: var(--toolbar-bgcolor) !important; */
   min-width: var(--sidebar-visible-width) !important;
