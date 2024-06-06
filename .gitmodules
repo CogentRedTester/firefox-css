@@ -1,0 +1,3 @@
+[submodule "Remove-Firefox-Megabar"]
+	path = Remove-Firefox-Megabar
+	url = git@github.com:WesleyBranton/Remove-Firefox-Megabar.git
