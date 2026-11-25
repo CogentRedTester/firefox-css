@@ -13,64 +13,44 @@
     visibility: collapse !important;
 }
 
-
-/* Sidebar min and max width removal */
-#sidebar {
-    max-width: none !important;
-    min-width: 0px !important;
+#main-window[titlepreface*=" ‎"] #sidebar-container {
+    visibility: collapse !important;
 }
 
 /* Styles the sidebar header */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
+@-moz-document url("chrome://browser/content/webext-panels.xhtml") {
+  #sidebar-panel-header {
+    background-color: inherit;
+    overflow: hidden;
+    visibility: collapse !important;
+    padding: 0 !important;;
+  }
+}
+
+#main-window[titlepreface*=" ‎"] #sidebar-panel-header {
   background-color: inherit;
   overflow: hidden;
-}
-
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-icon {
-  padding-right: 10px !important;
-  width: 30px !important;
-  margin-left: -6px;
-}
-
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover #sidebar-icon {
-  display: none;
-}
-
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-title {
-  padding-left: 0 !important;;
-}
-
-
-/* Disables the sidebar close button when the header is hidden */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header:not(:hover) #sidebar-close {
-    display: none;
+  visibility: collapse !important;
+  padding: 0 !important;
 }
 
 /* Shrink sidebar until hovered, when using Sidebery. */
 
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"],
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
   position: relative !important;
   min-width: var(--sidebar-min-width) !important;
   max-width: var(--sidebar-min-width) !important;
-  z-index:1;
-}
-
-/* Adds a dark grey border to the right of the sidebar */
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] :-moz-any(#sidebar,#sidebar-header) {
-  border-right: 1px solid darkgray;
+  z-index:100 !important;
 }
 
 /* Removes the sidebar splitter */
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] + splitter {
-  display: none;
+  visibility: collapse;
 }
 
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover :-moz-any(#sidebar,#sidebar-header) {
-/*   background-color: var(--toolbar-bgcolor) !important; */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover {
+  background-color: var(--toolbar-bgcolor) !important;
   min-width: var(--sidebar-visible-width) !important;
   max-width: var(--sidebar-visible-width) !important;
   margin-right: calc((var(--sidebar-visible-width) - var(--sidebar-min-width)) * -1) !important;
-  z-index:1;
-  position: relative !important;
 }
